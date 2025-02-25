@@ -32,7 +32,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            to="/news"
+            to="/#"
             className={`pb-1 ${
               location.pathname === "/news" ? "text-green-400 border-b-2 border-green-400" : "hover:text-white"
             }`}
