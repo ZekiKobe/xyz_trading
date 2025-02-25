@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaGlobe } from "react-icons/fa";
 
+
 const Navbar = () => {
   const location = useLocation(); // Get the current route
 
