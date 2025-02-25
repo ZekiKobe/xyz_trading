@@ -17,7 +17,7 @@ const PersonalCenter = () => {
   return (
     <div className="flex flex-col items-center w-full max-w-4xl bg-[#1e253b] p-6 md:p-8 rounded-xl text-center shadow-lg">
       <img
-        src="/src/assets/profile.png"
+        src="/profile.png"
         alt="Profile"
         className="w-20 h-20 rounded-full mx-auto mb-4 border border-gray-500"
       />

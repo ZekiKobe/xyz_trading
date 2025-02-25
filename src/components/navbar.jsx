@@ -10,7 +10,7 @@ const Navbar = () => {
     <nav className="flex items-center justify-between px-6 py-4 bg-[#0a0f1f] text-white shadow-md">
       {/* Left Section - Logo & Links */}
       <div className="flex items-center space-x-8">
-        <img src="/src/assets/logo.png" alt="Uniswap" className="h-8" />
+        <img src="/logo.png" alt="Uniswap" className="h-8" />
 
         <div className="md:flex space-x-6 text-gray-400">
           <Link
@@ -51,7 +51,7 @@ const Navbar = () => {
         {/* Clickable Avatar - Navigate to Profile Page */}
         <Link to="/profile">
           <img
-            src="/src/assets/user.png"
+            src="/profile.png"
             alt="Profile"
             className="h-8 w-8 rounded-full cursor-pointer"
           />

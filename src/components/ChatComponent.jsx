@@ -52,7 +52,7 @@ export default function ChatComponent() {
           className="bg-white shadow-xl rounded-2xl w-96 h-96 flex flex-col absolute bottom-12 right-0"
         >
           <div className="flex items-center p-3 bg-blue-600 text-white w-full" style={{ borderTopLeftRadius: "10px", borderTopRightRadius: "10px" }}>
-            <img src="/src/assets/user.png" alt="User Avatar" className="w-10 h-10 rounded-full" />
+            <img src="/profile.png" alt="User Avatar" className="w-10 h-10 rounded-full" />
             <h2 className="text-lg font-semibold" style={{ marginLeft: "10px" }}>XYZ Trading</h2>
           </div>
 
