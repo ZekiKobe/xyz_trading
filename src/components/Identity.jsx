@@ -5,8 +5,8 @@ const Identity = () => {
   const [documentType, setDocumentType] = useState("Identity Card");
   const [realName, setRealName] = useState("");
   const [documentNumber, setDocumentNumber] = useState("");
-  const [frontImage, setFrontImage] = useState("/src/assets/uploadFront.jpg"); // Default image
-  const [backImage, setBackImage] = useState("/src/assets/uploadBack.png"); // Default image
+  const [frontImage, setFrontImage] = useState("/uploadFront.jpg"); // Default image
+  const [backImage, setBackImage] = useState("/uploadBack.png"); // Default image
 
   const handleFileUpload = (event, type) => {
     const file = event.target.files[0];
