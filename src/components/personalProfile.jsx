@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaCopy } from "react-icons/fa";
 
 const PersonalCenter = () => {
@@ -7,12 +7,41 @@ const PersonalCenter = () => {
   const [depositProof, setDepositProof] = useState(null);
   const [withdrawAddress, setWithdrawAddress] = useState("");
   const [withdrawAmount, setWithdrawAmount] = useState("");
+  const [profile, setProfile] = useState(null);
   const depositAddress = "0x1234567890abcdef";
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await fetch("https://xyztrading-api.onrender.com/api/auth/profile", {
+          method: "GET",
+          headers: {
+            "Authorization": `Bearer ${localStorage.getItem('token')}`, // Send token for authentication
+          },
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          setProfile(data);
+        } else {
+          alert("Failed to fetch profile information.");
+        }
+      } catch (error) {
+        console.error("Error fetching profile:", error);
+      }
+    };
+
+    fetchProfile();
+  }, []);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(depositAddress);
     alert("Address copied!");
   };
+
+  if (!profile) {
+    return <div>Loading...</div>; // Show loading state while fetching profile
+  }
 
   return (
     <div className="flex flex-col items-center w-full max-w-4xl bg-[#1e253b] p-6 md:p-8 rounded-xl text-center shadow-lg">
@@ -22,16 +51,16 @@ const PersonalCenter = () => {
         className="w-20 h-20 rounded-full mx-auto mb-4 border border-gray-500"
       />
       
-      <h3 className="text-xl font-semibold">gagurekobe@gmail.com</h3>
+      <h3 className="text-xl font-semibold">{profile.email}</h3>
       <p className="text-gray-400 text-sm flex justify-center gap-2 mt-2">
-        <span className="bg-[#2d354b] px-3 py-1 rounded-full">UID: 24014466</span>
-        <span className="bg-[#2d354b] px-3 py-1 rounded-full">Invitation Code: TE7viuaW</span>
+        <span className="bg-[#2d354b] px-3 py-1 rounded-full">UID: {profile.uid}</span>
+        <span className="bg-[#2d354b] px-3 py-1 rounded-full">Invitation Code: {profile.invitationCode}</span>
       </p>
 
       <div className="bg-[#3b4a6b] p-6 rounded-xl mt-6 w-full flex justify-between">
         <div>
           <h4 className="text-lg font-semibold">Account Balance</h4>
-          <p className="text-3xl font-bold">0.00 <span className="text-sm">USDT</span></p>
+          <p className="text-3xl font-bold">{profile.balance} <span className="text-sm">USDT</span></p>
           <p className="text-gray-300 text-sm">0.00 USDT Today</p>
         </div>
         

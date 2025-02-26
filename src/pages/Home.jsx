@@ -86,7 +86,6 @@ const Home = () => {
       <Carousel />
 
       <div className="px-5 w-full">
-        <h2 className="text-2xl font-semibold mb-4 text-center">Top 20 Cryptos</h2>
         <div className="flex flex-col gap-2 w-full">
           {cryptoData.map((coin) => (
             <Link
